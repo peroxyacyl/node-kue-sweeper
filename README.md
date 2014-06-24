@@ -31,8 +31,8 @@ npm install kue-sweeper
 
 ## Configure
 
- * -p --port <n>, redis service port
- * -h, --host [VALUE], redis service host
+ * -p --port <n> or config.redis.port, redis service port
+ * -h, --host [VALUE] or config.redis.host, redis service host
 
 ## License
 Copyright (c) 2013 yi

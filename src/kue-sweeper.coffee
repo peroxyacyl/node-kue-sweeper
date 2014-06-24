@@ -9,6 +9,7 @@
 p = require "commander"
 redis = require "redis"
 _ = require "underscore"
+config = require "config"
 kue = require 'kue'
 Job = kue.Job
 
@@ -18,9 +19,9 @@ p.version('0.0.1')
   .option('-h, --host [VALUE]', 'redis service host')
   .parse(process.argv)
 
-p.port = p.port || 6379
+p.port = p.port || (if config.redis then config.redis.port else undefined) || 6379
 
-p.host = p.host || "localhost"
+p.host = p.host || (if config.redis then config.redis.host else undefined) || "localhost"
 
 kue.redis.createClient = ->
 
